@@ -1,0 +1,432 @@
+/* =========================================================
+   Dayoung Jeong — Academic personal website
+   Minimal academic style, no frameworks, no external assets
+   ========================================================= */
+
+/* Self-hosted (not CDN-linked) — same font used in the index.html splash */
+@font-face {
+  font-family: 'Pinyon Script';
+  src: url('assets/fonts/PinyonScript.ttf') format('truetype');
+  font-display: swap;
+}
+
+:root {
+  --color-bg: #ffffff;
+  --color-text: #222222;
+  --color-muted: #5a5a5a;
+  --color-accent: #1a3a5c;
+  --color-border: #e2e2e2;
+  --font-serif: Georgia, 'Times New Roman', Times, serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --max-width: 860px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-serif);
+  font-size: 17px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+a:hover,
+a:focus {
+  border-bottom-color: var(--color-accent);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-serif);
+  font-weight: normal;
+  color: var(--color-text);
+  line-height: 1.3;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0 0 1.2rem;
+}
+
+h2 {
+  font-size: 1.3rem;
+  margin: 2.5rem 0 1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+p {
+  margin: 0 0 1.2rem;
+}
+
+/* ---------- Layout shell ---------- */
+
+.site-wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ---------- Top navigation ---------- */
+
+.site-header {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.nav-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.site-name {
+  font-family: 'Pinyon Script', var(--font-serif);
+  font-size: 2rem;
+  color: var(--color-text);
+  border-bottom: none;
+  letter-spacing: 0.01em;
+}
+
+.site-name:hover {
+  color: var(--color-accent);
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.site-nav a {
+  font-family: var(--font-sans);
+  color: var(--color-muted);
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+}
+
+.site-nav a:hover {
+  color: var(--color-accent);
+}
+
+.site-nav a[aria-current="page"] {
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
+}
+
+/* ---------- Main content ---------- */
+
+.site-main {
+  padding: 3rem 0 4rem;
+}
+
+/* ---------- Home page two-column layout ---------- */
+
+.home-layout {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+.home-sidebar {
+  flex: 0 0 260px;
+  width: 260px;
+}
+
+.home-photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--color-border);
+  margin-bottom: 1.5rem;
+  background: #f4f4f4;
+}
+
+.home-sidebar h2.name {
+  font-size: 1.3rem;
+  margin: 0 0 0.3rem;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.home-title {
+  color: var(--color-muted);
+  font-size: 0.95rem;
+  margin: 0 0 1.3rem;
+  line-height: 1.5;
+}
+
+.contact-block {
+  font-family: var(--font-sans);
+  /* Small enough that "Chungnam National University Law School" fits on
+     one line within the 260px sidebar, rather than wrapping mid-phrase. */
+  font-size: 0.84rem;
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+.contact-block dt {
+  font-weight: bold;
+  color: var(--color-text);
+  margin-top: 0.9rem;
+}
+
+.contact-block dt:first-child {
+  margin-top: 0;
+}
+
+.contact-block dd {
+  margin: 0.15rem 0 0;
+}
+
+.home-content {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.research-interests {
+  color: var(--color-muted);
+}
+
+/* ---------- Publication lists ---------- */
+
+.pub-list {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+  counter-reset: pub-counter;
+}
+
+.pub-list li {
+  counter-increment: pub-counter;
+  position: relative;
+  margin: 0 0 1.1rem;
+  padding-left: 2.6rem;
+  line-height: 1.6;
+}
+
+.pub-list li::before {
+  content: counter(pub-counter) ".";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2rem;
+  text-align: right;
+  color: var(--color-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.pub-list.plain {
+  list-style: disc;
+  padding-left: 1.4rem;
+}
+
+.pub-list.plain li {
+  padding-left: 0;
+  position: static;
+}
+
+.pub-list.plain li::before {
+  content: none;
+}
+
+.award {
+  color: var(--color-accent);
+  font-size: 0.88em;
+}
+
+/* Expandable English abstract per publication */
+
+.abstract {
+  margin-top: 0.35rem;
+}
+
+.abstract summary {
+  display: inline-block;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: var(--color-accent);
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+  padding: 0.05rem 0.55rem;
+  user-select: none;
+}
+
+.abstract summary:hover {
+  border-color: var(--color-accent);
+}
+
+.abstract[open] summary {
+  background: var(--color-accent);
+  color: #ffffff;
+  border-color: var(--color-accent);
+}
+
+.abstract p {
+  font-size: 0.92rem;
+  color: var(--color-muted);
+  line-height: 1.65;
+  margin: 0.6rem 0 0.4rem;
+  padding: 0.8rem 1rem;
+  background: #f7f8fa;
+  border-left: 2px solid var(--color-accent);
+}
+
+/* ---------- Simple lists (talks, funding, courses) ---------- */
+
+.simple-list {
+  margin: 0 0 1rem;
+  padding-left: 1.4rem;
+}
+
+.simple-list li {
+  margin: 0 0 0.9rem;
+  line-height: 1.6;
+}
+
+.course-group {
+  margin: 0 0 1.5rem;
+}
+
+.course-group h3 {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: normal;
+  font-style: italic;
+  color: var(--color-accent);
+  margin: 0 0 0.4rem;
+}
+
+.course-group p {
+  color: var(--color-text);
+  margin: 0;
+  line-height: 1.8;
+}
+
+.intro-text {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  color: var(--color-muted);
+  max-width: 70ch;
+}
+
+.interests-list {
+  list-style: none;
+  margin: 0 0 1.2rem;
+  padding: 0;
+  color: var(--color-muted);
+}
+
+.interests-list li {
+  margin: 0 0 0.35rem;
+  padding-left: 1.1rem;
+  position: relative;
+}
+
+.interests-list li::before {
+  content: "·";
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+  font-weight: bold;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  font-family: var(--font-sans);
+  border-top: 1px solid var(--color-border);
+  padding: 1.5rem 0 2.5rem;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+}
+
+.site-footer .site-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.4rem;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 600px) {
+  body {
+    font-size: 16px;
+  }
+
+  .nav-inner {
+    padding: 1.1rem 1.25rem;
+  }
+
+  .site-nav {
+    gap: 0.4rem 1rem;
+    row-gap: 0.5rem;
+  }
+
+  /* Larger touch targets on mobile (min ~44px tap height per Apple/Google guidance) */
+  .site-nav a {
+    padding: 0.5rem 0.1rem;
+  }
+
+  .home-layout {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .home-sidebar {
+    flex: 1 1 auto;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  /* Keep "Chungnam National University Law School" on one line at
+     mobile widths rather than wrapping mid-word. */
+  .contact-block dd {
+    font-size: 0.78rem;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  h2 {
+    font-size: 1.15rem;
+  }
+
+  /* Larger tap target for abstract toggle buttons */
+  .abstract summary {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.82rem;
+  }
+
+  .pub-list li {
+    padding-left: 2.1rem;
+  }
+
+  .pub-list li::before {
+    width: 1.6rem;
+  }
+}
