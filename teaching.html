@@ -5,6 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Teaching — Dayoung Jeong</title>
 <meta name="description" content="Courses taught by Dayoung Jeong, Associate Professor of Law at Chungnam National University Law School.">
+<meta property="og:title" content="Teaching — Dayoung Jeong">
+<meta property="og:description" content="Courses taught by Dayoung Jeong">
+<meta property="og:image" content="https://dyjeong.com/assets/og-image.png">
+<meta property="og:url" content="https://dyjeong.com/teaching.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -53,6 +59,21 @@
     <span>Last updated: July 2026</span>
   </div>
 </footer>
+
+<button class="back-to-top" id="back-to-top" aria-label="Back to top" type="button">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+</button>
+<script>
+  (function () {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function () {
+      btn.classList.toggle('is-visible', window.scrollY > 400);
+    });
+    btn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
 
 </body>
 </html>
