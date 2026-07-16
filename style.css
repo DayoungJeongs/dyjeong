@@ -25,6 +25,21 @@
   box-sizing: border-box;
 }
 
+/* Keeps an element in the accessibility tree / DOM (screen readers, SEO)
+   without showing it visually — used for a page's h1 when the visible
+   heading role is already served by other on-screen text. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 html {
   -webkit-text-size-adjust: 100%;
 }
