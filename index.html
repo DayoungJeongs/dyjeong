@@ -28,6 +28,17 @@
     background: var(--color-bg);
   }
 
+  /* On phones the signature otherwise sits slightly below true center;
+     nudge it up by biasing the flex alignment rather than changing the
+     SVG's internal text position (which would also shift the desktop
+     layout, where the current position already looks right). */
+  @media (max-width: 600px) {
+    .intro-screen {
+      align-items: flex-start;
+      padding-top: 22vh;
+    }
+  }
+
   .intro-link {
     border-bottom: none;
     display: block;
