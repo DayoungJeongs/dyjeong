@@ -151,7 +151,7 @@
     var textEl = document.getElementById('signature');
     var name = 'Dayoung Jeong';
     var stepDelay = 95; // ms between each letter starting to draw
-    var drawDuration = 550; // matches the CSS animation-duration above
+    var transitionBuffer = 60; // let the final sparkle's last frame render
 
     // Sparkles fire at the moment a specific letter is being drawn — the
     // "D" that opens the name (index 0), the "J" that opens "Jeong"
@@ -174,7 +174,14 @@
       tspans.push(tspan);
     }
 
+    // Read the real CSS durations so auto-advance stays synchronized if the
+    // writing or sparkle speed is ever adjusted in the stylesheet.
+    var drawDuration = parseFloat(window.getComputedStyle(tspans[0]).animationDuration) * 1000;
+    var finalSparkleEl = sparkleEls[sparkleEls.length - 1].querySelector('.intro-sparkle');
+    var sparkleDuration = parseFloat(window.getComputedStyle(finalSparkleEl).animationDuration) * 1000;
     var totalDrawTime = (name.length - 1) * stepDelay + drawDuration;
+    var finalSparkleEndTime = sparkleLetterIndices[sparkleLetterIndices.length - 1] * stepDelay + sparkleDuration;
+    var autoAdvanceTime = Math.max(totalDrawTime, finalSparkleEndTime) + transitionBuffer;
 
     // Position each sparkle's wrapping <g> at the letter it belongs to
     // (centered on the stroke, so it overlaps the ink rather than floating
@@ -226,7 +233,7 @@
     // the final sparkle has played, unless the visitor clicks/taps sooner.
     window.setTimeout(function () {
       window.location.href = 'home.html';
-    }, totalDrawTime + 900);
+    }, autoAdvanceTime);
   })();
 </script>
 
