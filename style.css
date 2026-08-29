@@ -65,6 +65,18 @@ a:focus {
   border-bottom-color: var(--color-accent);
 }
 
+/* Official Berkeley profile links stay identifiable without relying on hover. */
+.berkeley-link {
+  color: #1557a0;
+  border-bottom-color: currentColor;
+}
+
+.berkeley-link:hover,
+.berkeley-link:focus {
+  color: #0d3f78;
+  border-bottom-color: currentColor;
+}
+
 h1, h2, h3 {
   font-family: var(--font-serif);
   font-weight: normal;
