@@ -347,22 +347,23 @@ p {
 }
 
 .teaching-area + .teaching-area {
-  margin-top: 0.85rem;
+  margin-top: 0.45rem;
 }
 
 .teaching-area h4 {
   font-family: var(--font-serif);
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: normal;
   color: var(--color-text);
-  line-height: 1.6;
+  line-height: 1.45;
   margin: 0;
 }
 
 .teaching-area p {
   color: var(--color-text);
-  margin: 0.15rem 0 0 0.85rem;
-  line-height: 1.8;
+  font-size: 0.94rem;
+  margin: 0.05rem 0 0 0.85rem;
+  line-height: 1.65;
 }
 
 .course-group p {
