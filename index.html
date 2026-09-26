@@ -3,237 +3,117 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="canonical" href="https://dyjeong.com/">
-<title>Dayoung Jeong</title>
-<meta name="description" content="Dayoung Jeong — Associate Professor of Law, Chungnam National University Law School.">
+<title>Dayoung Jeong — Associate Professor of Law, Chungnam National University</title>
+<meta name="description" content="Dayoung Jeong is an Associate Professor of Law at Chungnam National University Law School, South Korea, specializing in civil law, comparative private law, and law and technology.">
 <meta property="og:title" content="Dayoung Jeong">
 <meta property="og:description" content="Chungnam National University Law School, South Korea">
 <meta property="og:image" content="https://dyjeong.com/assets/og-image.png">
 <meta property="og:url" content="https://dyjeong.com/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://dyjeong.com/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "mainEntity": {
+    "@type": "Person",
+    "name": "Dayoung Jeong",
+    "url": "https://dyjeong.com/",
+    "image": "https://dyjeong.com/assets/photo.jpg",
+    "jobTitle": "Associate Professor of Law",
+    "knowsAbout": [
+      "Civil Law",
+      "Comparative Private Law",
+      "Law and Technology",
+      "Consumer Law",
+      "Health Law"
+    ]
+  }
+}
+</script>
 <link rel="stylesheet" href="style.css">
-<style>
-  @font-face {
-    font-family: 'Pinyon Script';
-    src: url('assets/fonts/PinyonScript.ttf') format('truetype');
-    font-display: block;
-  }
-
-  .intro-screen {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-    background: var(--color-bg);
-  }
-
-  /* On phones the signature otherwise sits slightly below true center;
-     nudge it up by biasing the flex alignment rather than changing the
-     SVG's internal text position (which would also shift the desktop
-     layout, where the current position already looks right). */
-  @media (max-width: 600px) {
-    .intro-screen {
-      align-items: flex-start;
-      padding-top: 35vh;
-    }
-  }
-
-  .intro-link {
-    border-bottom: none;
-    display: block;
-  }
-
-  .intro-svg {
-    width: min(88vw, 900px);
-    height: auto;
-    overflow: visible;
-  }
-
-  .intro-svg text {
-    font-family: 'Pinyon Script', 'Brush Script MT', cursive;
-    /* Scales with viewport width but is capped. Larger overall than before
-       on both ends: bigger minimum on phones, and a noticeably bigger
-       maximum on desktop so the signature reads as a real focal point. */
-    font-size: clamp(130px, 30vw, 140px);
-    letter-spacing: 0.02em;
-  }
-
-  /* Each letter is its own tspan; each draws in turn, like a pen writing
-     one stroke at a time, left to right — the stroke itself IS the ink
-     (no separate "fill in" pass), so the line looks hand-drawn throughout. */
-  .intro-svg tspan {
-    fill: var(--color-accent);
-    stroke: var(--color-accent);
-    stroke-width: 2.5;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke-dasharray: 300;
-    stroke-dashoffset: 300;
-    animation: letter-draw 0.55s ease-out forwards;
-  }
-
-  @keyframes letter-draw {
-    to { stroke-dashoffset: 0; }
-  }
-
-  /* Small sparkles — four-point stars, like the pen nib catching the
-     light at a few instants as it writes — not a glow wash across the
-     whole name, just brief bright points, timed to coincide with the
-     moment a specific letter is being drawn (not floating at a random
-     time or place). Each .intro-sparkle gets its own --sparkle-delay
-     set in JS to match that letter's own draw animation-delay. */
-  .intro-sparkle {
-    opacity: 0;
-    transform-origin: center;
-    transform-box: fill-box;
-    fill: #f6d98a;
-    animation: sparkle-pop 0.7s ease-out;
-    animation-delay: var(--sparkle-delay, 0s);
-  }
-
-  @keyframes sparkle-pop {
-    0% {
-      opacity: 0;
-      transform: scale(0.2) rotate(0deg);
-    }
-    40% {
-      opacity: 1;
-      transform: scale(1.1) rotate(8deg);
-    }
-    100% {
-      opacity: 0;
-      transform: scale(0.4) rotate(8deg);
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .intro-svg tspan {
-      animation: none;
-      stroke-dashoffset: 0;
-    }
-
-    .intro-sparkle {
-      display: none;
-    }
-  }
-</style>
 </head>
 <body>
 
-<main class="intro-screen">
-  <a class="intro-link" href="home.html" aria-label="Enter site">
-    <svg class="intro-svg" viewBox="0 0 900 220" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
-      <text x="450" y="150" text-anchor="middle" id="signature">Dayoung Jeong</text>
-      <!-- Three sparkles, positioned at specific letters by JS: the start
-           of "D", the start of "J" (in "Jeong"), and the end of the final
-           "g" — each timed to pop exactly when that letter is being drawn.
-           IMPORTANT: position (translate) is set as an SVG attribute on
-           the outer <g>; the CSS keyframe animation (scale/rotate/opacity)
-           is on the inner <path> only. A CSS `transform` and an SVG
-           `transform` attribute on the SAME element conflict — the CSS
-           one wins outright and silently discards the attribute's
-           translate — so position and animated transform must live on
-           two different, nested elements. -->
-      <g class="sparkle-1"><path class="intro-sparkle" d="M0,-11 C0.8,-3.5 3.5,-0.8 11,0 C3.5,0.8 0.8,3.5 0,11 C-0.8,3.5 -3.5,0.8 -11,0 C-3.5,-0.8 -0.8,-3.5 0,-11 Z" /></g>
-      <g class="sparkle-2"><path class="intro-sparkle" d="M0,-13 C1,-4 4,-1 13,0 C4,1 1,4 0,13 C-1,4 -4,1 -13,0 C-4,-1 -1,-4 0,-13 Z" /></g>
-      <g class="sparkle-3"><path class="intro-sparkle" d="M0,-13 C1,-4 4,-1 13,0 C4,1 1,4 0,13 C-1,4 -4,1 -13,0 C-4,-1 -1,-4 0,-13 Z" /></g>
-    </svg>
-  </a>
+<header class="site-header">
+  <div class="nav-inner">
+    <a class="site-name" href="/">Dayoung Jeong</a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/" aria-current="page">Home</a>
+      <a href="research.html">Research</a>
+      <a href="teaching.html">Teaching</a>
+      <a href="cv/Dayoung_Jeong_CV.pdf">CV</a>
+    </nav>
+  </div>
+</header>
+
+<main class="site-main">
+  <div class="site-wrap home-layout">
+
+    <aside class="home-sidebar">
+      <!-- To change the photo, replace assets/photo.jpg (or edit the src below) -->
+      <img class="home-photo" src="assets/photo.jpg" alt="Photo of Dayoung Jeong" width="640" height="823">
+
+      <h2 class="name">Dayoung Jeong</h2>
+      <p class="home-title">
+        Associate Professor of Law<br>
+        Chungnam National University
+      </p>
+
+      <dl class="contact-block">
+        <dt>Email</dt>
+        <dd><a href="mailto:dayoungjeong@cnu.ac.kr">dayoungjeong@cnu.ac.kr</a></dd>
+
+        <dt>Address</dt>
+        <dd>Chungnam National University Law School<br>99 Daehak-ro, Yuseong-gu<br>Daejeon 34134, South Korea</dd>
+
+        <dt>CV</dt>
+        <dd><a href="cv/Dayoung_Jeong_CV.pdf">Full CV (PDF)</a></dd>
+      </dl>
+    </aside>
+
+    <div class="home-content">
+      <h1 class="visually-hidden">Dayoung Jeong — Associate Professor of Law, Chungnam National University</h1>
+
+      <p>I am an Associate Professor of Law at Chungnam National University Law School in South Korea. My research focuses on civil law—including contracts, torts, property, and family law—and uses comparative approaches to place Korean doctrine in dialogue with the civil-law traditions of continental Europe and the common-law tradition of the United States. Much of my recent work examines how private law should respond to emerging technologies, including artificial intelligence, digital platforms, and crypto-assets, as well as to developments in consumer protection and health law.</p>
+
+      <p>I have held visiting appointments at UC Berkeley School of Law in the United States, where I remain affiliated with the <a class="berkeley-link" href="https://www.law.berkeley.edu/research/korea-law-center/people/">Korea Law Center</a> and was a <a class="berkeley-link" href="https://www.law.berkeley.edu/research/the-robbins-collection/about-us/robbins-research-fellows/">2026 Robbins Research Fellow</a>. Berkeley Law profiled this work in a <a class="berkeley-link" href="https://www.law.berkeley.edu/center-article/robbins-fellow-spotlight-dayoung-jeong/">Robbins Fellow Spotlight</a>. I have also held a visiting appointment at Université Paris-Panthéon-Assas in France. Before entering academia, I served as a deputy director in the Korean government and practiced law as an attorney in the private sector. This experience keeps my scholarship closely connected to the practical problems faced by courts and legislators. I also serve on several government advisory committees in Korea.</p>
+
+      <p>I work in Korean, English, and French. Some of the work I value most takes place across borders, including comparative research projects, joint conferences, and advising international colleagues on Korean law. If our interests overlap, I would be glad to hear from you at <a href="mailto:dayoungjeong@cnu.ac.kr">dayoungjeong@cnu.ac.kr</a>.</p>
+
+      <h2>Research Interests</h2>
+      <ul class="interests-list">
+        <li>Civil Law (Contracts, Torts, Property, Family Law)</li>
+        <li>Comparative Private Law (Civil-law and Common-law Traditions)</li>
+        <li>Law and Technology (AI, Digital Platforms, Crypto-assets)</li>
+        <li>Consumer Law</li>
+        <li>Medical Law and Health Policy</li>
+      </ul>
+    </div>
+
+  </div>
 </main>
 
+<footer class="site-footer">
+  <div class="site-wrap">
+    <span>&copy; 2026 Dayoung Jeong</span>
+    <span>Last updated: July 2026</span>
+  </div>
+</footer>
+
+<button class="back-to-top" id="back-to-top" aria-label="Back to top" type="button">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+</button>
 <script>
-  // Split the name into one <tspan> per letter so each can be animated in
-  // sequence, giving the effect of a pen writing the signature letter by
-  // letter, left to right — rather than the whole word appearing at once.
   (function () {
-    var textEl = document.getElementById('signature');
-    var name = 'Dayoung Jeong';
-    var stepDelay = 95; // ms between each letter starting to draw
-    var transitionBuffer = 60; // let the final sparkle's last frame render
-
-    // Sparkles fire at the moment a specific letter is being drawn — the
-    // "D" that opens the name (index 0), the "J" that opens "Jeong"
-    // (index 8), and the final "g" (last index) — not at a random time
-    // or an arbitrary off-word position.
-    var sparkleLetterIndices = [0, 8, name.length - 1];
-    var sparkleEls = [
-      document.querySelector('.sparkle-1'),
-      document.querySelector('.sparkle-2'),
-      document.querySelector('.sparkle-3'),
-    ];
-
-    textEl.textContent = '';
-    var tspans = [];
-    for (var i = 0; i < name.length; i++) {
-      var tspan = document.createElementNS('http://www.w3.org/2000/svg', 'tspan');
-      tspan.textContent = name[i] === ' ' ? ' ' : name[i];
-      tspan.style.animationDelay = (i * stepDelay) + 'ms';
-      textEl.appendChild(tspan);
-      tspans.push(tspan);
-    }
-
-    // Read the real CSS durations so auto-advance stays synchronized if the
-    // writing or sparkle speed is ever adjusted in the stylesheet.
-    var drawDuration = parseFloat(window.getComputedStyle(tspans[0]).animationDuration) * 1000;
-    var finalSparkleEl = sparkleEls[sparkleEls.length - 1].querySelector('.intro-sparkle');
-    var sparkleDuration = parseFloat(window.getComputedStyle(finalSparkleEl).animationDuration) * 1000;
-    var totalDrawTime = (name.length - 1) * stepDelay + drawDuration;
-    var finalSparkleEndTime = sparkleLetterIndices[sparkleLetterIndices.length - 1] * stepDelay + sparkleDuration;
-    var autoAdvanceTime = Math.max(totalDrawTime, finalSparkleEndTime) + transitionBuffer;
-
-    // Position each sparkle's wrapping <g> at the letter it belongs to
-    // (centered on the stroke, so it overlaps the ink rather than floating
-    // beside it), timed to pop right as that letter starts drawing. Must
-    // wait for the font to actually be loaded, or getBBox() on the (still
-    // system-font-sized) text returns a bogus/zero box and sparkles end
-    // up off-canvas.
-    function placeSparkles() {
-      var firstLetter = tspans[0];
-      var testBox = firstLetter.getBBox();
-      if (!testBox || (testBox.width === 0 && testBox.height === 0)) {
-        // Font/layout not ready yet — try again next frame.
-        requestAnimationFrame(placeSparkles);
-        return;
-      }
-      sparkleLetterIndices.forEach(function (letterIndex, sparkleIndex) {
-        var letter = tspans[letterIndex];
-        var box = letter.getBBox();
-        var groupEl = sparkleEls[sparkleIndex];
-        var pathEl = groupEl.querySelector('.intro-sparkle');
-        var isLast = sparkleIndex === sparkleLetterIndices.length - 1;
-        // getBBox() returns coordinates in the SVG's own viewBox units, so
-        // this position is identical on phone and desktop (the viewBox is
-        // scaled uniformly by preserveAspectRatio, not stretched).
-        // The final sparkle (on the closing "g") sits at the very end of
-        // its stroke — like the pen lifting off the page at the finishing
-        // flourish — rather than centered on the letter like the other two.
-        var x = isLast ? box.x + box.width * 0.85 : box.x + box.width * 0.5;
-        var y = isLast ? box.y + box.height * 0.45 : box.y + box.height * 0.35;
-        // The translate lives as an SVG attribute on the outer <g> — the
-        // CSS scale/rotate animation is on the inner <path> only. Putting
-        // both an attribute transform and a CSS transform on the SAME
-        // element doesn't work: the CSS transform wins outright and the
-        // attribute's translate is silently discarded, which is why an
-        // earlier version showed every sparkle at the same spot near "D".
-        groupEl.setAttribute('transform', 'translate(' + x + ',' + y + ')');
-        pathEl.style.setProperty('--sparkle-delay', (letterIndex * stepDelay) + 'ms');
-      });
-    }
-    if (document.fonts && document.fonts.ready) {
-      document.fonts.ready.then(function () {
-        requestAnimationFrame(placeSparkles);
-      });
-    } else {
-      requestAnimationFrame(placeSparkles);
-    }
-
-    // Auto-advance to the homepage after the signature is fully drawn and
-    // the final sparkle has played, unless the visitor clicks/taps sooner.
-    window.setTimeout(function () {
-      window.location.href = 'home.html';
-    }, autoAdvanceTime);
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function () {
+      btn.classList.toggle('is-visible', window.scrollY > 400);
+    });
+    btn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
   })();
 </script>
 
