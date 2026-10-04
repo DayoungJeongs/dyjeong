@@ -627,3 +627,15 @@ p {
     transform: translateY(-50%);
   }
 }
+
+/* International activities: content aligns with the publication titles. */
+.research-page .research-sections a { white-space: nowrap; }
+.research-page .activity-list { list-style: none; padding: 0; margin: 0 0 1rem; }
+.research-page .activity-list li { padding-left: 2.6rem; }
+.research-page .activity-role { display: block; font-style: italic; color: var(--color-muted); margin-bottom: 0.35rem; }
+.research-page .activity-title { display: block; font-weight: 700; line-height: 1.55; }
+.research-page .activity-details { display: block; color: var(--color-muted); font-size: 0.92rem; line-height: 1.7; margin-top: 0.35rem; }
+.research-page .activity-programme { display: inline-block; margin-top: 0.4rem; font: 0.85rem/1.7 var(--font-sans); border-bottom-color: currentColor; }
+@media (max-width: 600px) {
+  .research-page .activity-list li { padding-left: 2.1rem; }
+}
